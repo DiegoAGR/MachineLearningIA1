@@ -1,0 +1,13 @@
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\bin\Debug\Laberinto.exe.config
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\bin\Debug\Laberinto.exe
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\bin\Debug\Laberinto.pdb
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.Form1.resources
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.Properties.Resources.resources
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.csproj.GenerateResource.Cache
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.csproj.CoreCompileInputs.cache
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.exe
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.pdb
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.csprojResolveAssemblyReference.cache
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.SeleccionarPersonaje.resources
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.SeleccionarCoordFinal.resources
+D:\Users\Diego\Documents\Proyectos C#\Laberinto\Laberinto\obj\Debug\Laberinto.SelecNumEntr.resources
