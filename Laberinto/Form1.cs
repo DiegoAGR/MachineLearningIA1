@@ -22,14 +22,13 @@ namespace Laberinto
         }
 
         Point Final, Inicio, Actual;
+        bool entrenamientoCompletado;
         int contadorVisita;
         int i;
         int numEntrenamiento;
         int entrenamientos;
         Image iniImg;
         Image temp;
-        Image temp2;
-        Point temp3;
         List<Paso> Recorrido = new List<Paso>();
         PictureBox[,] PM = new PictureBox[15, 15];
         Terreno[,] TS = new Terreno[15, 15];
@@ -38,10 +37,9 @@ namespace Laberinto
 
 
         string[] tokens;
-        bool SelIni;
         bool entrenando;
 
-
+        public static readonly int segundo = 1000;
         public static readonly string[] tipos = { "Montana","Agua","Barranco","Plano","Muro"};
 
         public static readonly double[] eM = { 2.5, 0.3, 1.5, 1 };
@@ -160,9 +158,9 @@ namespace Laberinto
             GenerarObstaculos();
             Final = new Point();
             Inicio = new Point();
-            SelIni = true;
+      
             numEntrenamiento = 0;
-            entrenamientos = 100;
+            entrenamientos = 10;
             entrenando = false;
             
             for (int i = 0; i < 15; i++)
@@ -223,39 +221,22 @@ namespace Laberinto
                             int coordi = Convert.ToInt32(tokens[0]) - 1;
                             int coordj = Convert.ToInt32(tokens[1]) - 1;
 
-
-                        if (e.Button == MouseButtons.Right)
-                        {
-                            
-                            PM[temp3.X, temp3.Y].Image = temp2;
-                            temp2 = P.Image;
-
-                            P.Image = Image.FromFile(Personaje);
-                            temp3.X = coordi;
-                            temp3.Y = coordj;
-                           
-                        }
-
                             if (e.Button == MouseButtons.Left)
                             {
-                           
-
                             if (!TS[coordi, coordj].getObstaculo())
                             {
-                                if (SelIni)
+                                if (Inicio.IsEmpty)
                                 {
                                     try
                                     {
                                         temp = P.Image;
-                                        temp2 = temp;
                                         iniImg = P.Image;
                                         P.Image = Image.FromFile(Personaje);
                                         textBox1.Text = P.Tag.ToString();
+                                       
                                         Inicio.X = coordi;
                                         Inicio.Y = coordj;
                                         
-                                        temp3 = Inicio;
-                                        SelIni = false;
                                     }
                                     catch
                                     {
@@ -308,6 +289,7 @@ namespace Laberinto
             textPersonaje.Text = m.getOpcion();
             SujetoPrueba = new Agente(m.getOpcion(),entrenamientos); //Reemplazar el 10 con un valor de algun textbox
             Personaje = m.getOpcion() + ".png";
+            SelPerButton.Enabled = false;
             m.Close();
             
         }
@@ -381,27 +363,29 @@ namespace Laberinto
 
         void Jugar()
         {
-            if(numEntrenamiento == entrenamientos-1)
+            if (numEntrenamiento == entrenamientos - 1)
             {
                 entrenando = false;
             }
+
             if (SujetoPrueba == null)
             {
                 MessageBox.Show("No has seleccionado un personaje para jugar.");
             }
+            else if(Inicio.IsEmpty || Final.IsEmpty )
+            {
+                MessageBox.Show("Falta seleccionar las coordenadas de inicio/final");
+            }
             else
             {
-                
-                //trackBar1.Enabled = false;
                 Actual = Inicio;
-                
                 Paso P = new Paso(Inicio,TS[Inicio.X, Inicio.Y].getPeso(SujetoPrueba.getNombre()), TS[Inicio.X,Inicio.Y].getTipo());
                 Recorrido.Add(P);
-                textActual.Text = "X: " + Actual.X.ToString() + "Y: " + Actual.Y.ToString();
+                textActual.Text = "X: " + Actual.X.ToString() + " Y: " + Actual.Y.ToString();
 
                 i = 1;
 
-                timer1.Interval = 1;
+                timer1.Interval = segundo + trackVel.Value;
                 timer1.Start();
             }
 
@@ -524,13 +508,10 @@ namespace Laberinto
                     while (!esCoordValida(Nuevo))
                     {
                         posnueva = rnd.Next(Posiciones.GetLength(0));
-
                         Nuevo.X = Posiciones[posnueva, 0];
                         Nuevo.Y = Posiciones[posnueva, 1];
 
-                    }
-                    
-                    //break;
+                    }                    
                 }
             }
             
@@ -599,31 +580,38 @@ namespace Laberinto
             PM[Inicio.X, Inicio.Y].Image = Image.FromFile(Personaje);
             temp = Image.FromFile(TS[Inicio.X, Inicio.Y].getImagen());
             Recorrido.Clear();
+
             if(entrenando)
             {
-               
                 Jugar();
             }
             else
             {
                 MessageBox.Show("Entrenamiento termiando");
+                entrenamientoCompletado = true;
                 SujetoPrueba.MostrarDatosRecorrido();
-               // Explotar();
             }
         }
 
         void Explotar()
         {
-          
-            i = 1;
-       
-            textActual.Text = "";
-            Reiniciar();
-            Paso P = new Paso(Inicio, TS[Inicio.X, Inicio.Y].getPeso(SujetoPrueba.getNombre()), TS[Inicio.X, Inicio.Y].getTipo());
-            Recorrido.Add(P);
-            Actual = Inicio;
-            timer2.Interval = 100;
-            timer2.Start();
+          if(entrenamientoCompletado)
+            {
+                i = 1;
+
+                textActual.Text = "";
+                Reiniciar();
+                Paso P = new Paso(Inicio, TS[Inicio.X, Inicio.Y].getPeso(SujetoPrueba.getNombre()), TS[Inicio.X, Inicio.Y].getTipo());
+                Recorrido.Add(P);
+                Actual = Inicio;
+                timer2.Interval = 100;
+                timer2.Start();
+            }
+            else
+            {
+                MessageBox.Show("Primero debes de entrenar para poder explotar el terreno.");
+            }
+            
         }
 
         bool fueVisitado(Point P)
@@ -650,6 +638,12 @@ namespace Laberinto
             {
                 PrimeroElMejor(Actual);
             }
+
+        }
+
+        private void trackVel_Scroll(object sender, EventArgs e)
+        {
+            timer1.Interval = segundo + trackVel.Value;
 
         }
 
