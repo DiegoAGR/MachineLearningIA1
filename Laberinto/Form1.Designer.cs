@@ -47,14 +47,18 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.textNumEntr = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackVel = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.picturePersonaje = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelCantEnt = new System.Windows.Forms.Label();
+            this.textCantEnt = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePersonaje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -219,21 +223,10 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "No. Entrenamiento:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::Laberinto.Properties.Resources.bnf;
-            this.pictureBox1.Location = new System.Drawing.Point(688, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(227, 100);
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
-            // 
             // trackVel
             // 
             this.trackVel.LargeChange = 500;
-            this.trackVel.Location = new System.Drawing.Point(688, 428);
+            this.trackVel.Location = new System.Drawing.Point(688, 525);
             this.trackVel.Maximum = 1000;
             this.trackVel.Minimum = -999;
             this.trackVel.Name = "trackVel";
@@ -246,7 +239,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(685, 460);
+            this.label4.Location = new System.Drawing.Point(685, 557);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 32;
@@ -255,7 +248,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(880, 460);
+            this.label6.Location = new System.Drawing.Point(880, 557);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 33;
@@ -270,11 +263,44 @@
             this.picturePersonaje.TabIndex = 34;
             this.picturePersonaje.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::Laberinto.Properties.Resources.bnf;
+            this.pictureBox1.Location = new System.Drawing.Point(688, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(227, 100);
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            // 
+            // labelCantEnt
+            // 
+            this.labelCantEnt.AutoSize = true;
+            this.labelCantEnt.Location = new System.Drawing.Point(685, 413);
+            this.labelCantEnt.Name = "labelCantEnt";
+            this.labelCantEnt.Size = new System.Drawing.Size(143, 13);
+            this.labelCantEnt.TabIndex = 35;
+            this.labelCantEnt.Text = "Cantidad de Entrenamientos:";
+            // 
+            // textCantEnt
+            // 
+            this.textCantEnt.Location = new System.Drawing.Point(834, 410);
+            this.textCantEnt.Name = "textCantEnt";
+            this.textCantEnt.Size = new System.Drawing.Size(80, 20);
+            this.textCantEnt.TabIndex = 36;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 720);
+            this.Controls.Add(this.textCantEnt);
+            this.Controls.Add(this.labelCantEnt);
             this.Controls.Add(this.picturePersonaje);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -299,9 +325,10 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackVel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePersonaje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,6 +359,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox picturePersonaje;
+        private System.Windows.Forms.Label labelCantEnt;
+        private System.Windows.Forms.TextBox textCantEnt;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

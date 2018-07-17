@@ -132,17 +132,14 @@ namespace Laberinto
             for (int i = 0; i < 15; i++)
             {
                 for (int j = 0; j < 15; j++)
-                {
-
-                    string imagen;
-                 
+                {                 
                     if (TS[i, j].getObstaculo())
                     {
-                        imagen = "Montana.png";
+                      //  imagen = "Montana.png";
                     }
                     else
                     {
-                        imagen = "plano.png";
+                        //imagen = "plano.png";
                     }
                     
                     //TS[i, j].setImagen(imagen);
@@ -156,11 +153,10 @@ namespace Laberinto
         private void Rellenar()
         {
             GenerarObstaculos();
-            Final = new Point();
-            Inicio = new Point();
+           
       
             numEntrenamiento = 0;
-            entrenamientos = 20;
+            
             entrenando = false;
             
             for (int i = 0; i < 15; i++)
@@ -368,6 +364,13 @@ namespace Laberinto
 
         void Jugar()
         {
+            int val = 0;
+            if (Int32.TryParse(textCantEnt.Text, out val))
+            {
+                errorProvider1.Clear();
+                textCantEnt.Enabled = false;
+                entrenamientos = val;
+            
             if (numEntrenamiento == entrenamientos - 1)
             {
                 entrenando = false;
@@ -383,6 +386,7 @@ namespace Laberinto
             }
             else
             {
+                
                 Actual = Inicio;
                 Paso P = new Paso(Inicio,TS[Inicio.X, Inicio.Y].getPeso(SujetoPrueba.getNombre()), TS[Inicio.X,Inicio.Y].getTipo());
                 Recorrido.Add(P);
@@ -393,8 +397,13 @@ namespace Laberinto
                 timer1.Interval = segundo + trackVel.Value;
                 timer1.Start();
             }
-
-        }
+                }
+                else
+                {
+                    errorProvider1.BlinkRate = 0;
+                    errorProvider1.SetError(textCantEnt, "Ese no es un numero valido!");
+                }
+            }
 
 
         void PrimeroElMejor(Point P)
