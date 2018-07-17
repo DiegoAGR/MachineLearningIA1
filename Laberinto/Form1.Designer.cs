@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.SelPerButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,8 +51,10 @@
             this.trackVel = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.picturePersonaje = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackVel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePersonaje)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -222,7 +223,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::Laberinto.Properties.Resources.bnf;
             this.pictureBox1.Location = new System.Drawing.Point(688, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(227, 100);
@@ -260,11 +261,21 @@
             this.label6.TabIndex = 33;
             this.label6.Text = "Lento";
             // 
+            // picturePersonaje
+            // 
+            this.picturePersonaje.Location = new System.Drawing.Point(706, 191);
+            this.picturePersonaje.Name = "picturePersonaje";
+            this.picturePersonaje.Size = new System.Drawing.Size(182, 157);
+            this.picturePersonaje.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picturePersonaje.TabIndex = 34;
+            this.picturePersonaje.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 720);
+            this.Controls.Add(this.picturePersonaje);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.trackVel);
@@ -290,6 +301,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackVel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePersonaje)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,6 +331,7 @@
         private System.Windows.Forms.TrackBar trackVel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox picturePersonaje;
     }
 }
 

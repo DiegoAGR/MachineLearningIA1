@@ -46,7 +46,7 @@ namespace Laberinto
         public static readonly double[] eP = { 0.3, 2.5, 1, 1.5 };
         public static readonly double[] eL = { 1.5, 1, 2.5, 0.3 };
 
-        void GenerarObstaculos() //Revisar cuanta memoria usa
+        void GenerarObstaculos() 
         {
             int ran;
             double[] val;
@@ -145,9 +145,9 @@ namespace Laberinto
                         imagen = "plano.png";
                     }
                     
-                    TS[i, j].setImagen(imagen);
+                    //TS[i, j].setImagen(imagen);
 
-                    PM[i,j].Image = Image.FromFile(TS[i, j].getImagen());
+                    //PM[i,j].Image = Image.FromFile(TS[i, j].getImagen());
 
                 }
             }
@@ -160,7 +160,7 @@ namespace Laberinto
             Inicio = new Point();
       
             numEntrenamiento = 0;
-            entrenamientos = 10;
+            entrenamientos = 20;
             entrenando = false;
             
             for (int i = 0; i < 15; i++)
@@ -168,41 +168,41 @@ namespace Laberinto
                 for (int j = 0; j < 15; j++)
                 {
 
-                    string imagen = null;
+                    Image imagen = null;
                     string tipo = TS[i, j].getTipo();
 
                     switch(tipo)
                     {
                         case "Montana":
-                            imagen = "Montana.png";
+                            imagen = Laberinto.Properties.Resources.Montana;
 
                             break;
 
                         case "Agua":
-                            imagen = "Agua.png";
+                            imagen = Laberinto.Properties.Resources.Agua;
                             break;
 
                         case "Barranco":
-                            imagen = "Barranco.png";
+                            imagen = Laberinto.Properties.Resources.Barranco;
                             break;
 
                         case "Plano":
-                            imagen = "Plano.png";
+                            imagen = Laberinto.Properties.Resources.Plano;
                                 break;
 
                         case "Muro":
-                            imagen = "Muro.png";
+                            imagen = Laberinto.Properties.Resources.Muro;
                             break;
 
                     }
+                    
 
-                 
-                    TS[i, j].setImagen(imagen);
+                    //TS[i, j].setImagen(imagen);
 
                     PictureBox P = new PictureBox
                     {
                         SizeMode = PictureBoxSizeMode.StretchImage,
-                        Image = Image.FromFile(TS[i, j].getImagen()),
+                        Image = imagen,
                         Width = 40,
                         Height = 40,
                         Top = 40 * j,
@@ -287,9 +287,14 @@ namespace Laberinto
             SeleccionarPersonaje m = new SeleccionarPersonaje();
             var dialogResult = m.ShowDialog();
             textPersonaje.Text = m.getOpcion();
-            SujetoPrueba = new Agente(m.getOpcion(),entrenamientos); //Reemplazar el 10 con un valor de algun textbox
-            Personaje = m.getOpcion() + ".png";
-            SelPerButton.Enabled = false;
+            Console.WriteLine(m.getOpcion());
+            if (!(m.getOpcion() == ""))
+            {
+                SujetoPrueba = new Agente(m.getOpcion(), entrenamientos); //Reemplazar el 10 con un valor de algun textbox
+                Personaje = m.getOpcion() + ".png";
+                SelPerButton.Enabled = false;
+                picturePersonaje.Image = Image.FromFile(Personaje);
+            }
             m.Close();
             
         }
@@ -301,6 +306,7 @@ namespace Laberinto
         private void button2_Click_1(object sender, EventArgs e)
         {
             entrenando = true;
+            verPonderaciones();
             Jugar();
         }
 
@@ -337,8 +343,7 @@ namespace Laberinto
 
         void verPonderaciones()
         {
-            if (numEntrenamiento == 0 || numEntrenamiento == entrenamientos)
-            {
+            
                 Console.WriteLine(SujetoPrueba.getEstado());
                 for (int i = 0; i < 15; i++)
                 {
@@ -347,7 +352,7 @@ namespace Laberinto
                         Console.WriteLine("Casilla: "+i.ToString()+","+j.ToString()+" : "+TS[i, j].getPonderacion(SujetoPrueba.getNombre()));
                     }
                 }
-            }
+            
         }
 
         void AjustarPonderaciones()
@@ -576,9 +581,9 @@ namespace Laberinto
 
         void Reiniciar()
         {
-            PM[Final.X, Final.Y].Image = Image.FromFile("Casa.png");
+            PM[Final.X, Final.Y].Image = Laberinto.Properties.Resources.Casa;
             PM[Inicio.X, Inicio.Y].Image = Image.FromFile(Personaje);
-            temp = Image.FromFile(TS[Inicio.X, Inicio.Y].getImagen());
+            temp = iniImg;
             Recorrido.Clear();
 
             if(entrenando)

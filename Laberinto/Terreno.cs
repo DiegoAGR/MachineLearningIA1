@@ -8,10 +8,7 @@ namespace Laberinto
 {
     public class Terreno
     {
-        private string Imagen;
-        private string Nombre;
         private bool obstaculo;
-        private bool bandera;
         private string tipo;
         private double[] Ponderacion = {Int32.MaxValue, Int32.MaxValue, Int32.MaxValue }; 
         private double[] esfuerzos;
@@ -43,7 +40,7 @@ namespace Laberinto
 
        public double getPeso(string nombre)
         {
-            double p =0;
+            double p = 0;
             switch (nombre)
             {
                 case "Sonic":
@@ -111,16 +108,6 @@ namespace Laberinto
         public void setObstaculo(bool o)
         {
             this.obstaculo = o;
-        }
-
-        public void setImagen(string i)
-        {
-            this.Imagen = i;
-        }
-
-        public string getImagen()
-        {
-            return this.Imagen;
         }
 
         public bool getObstaculo()
