@@ -18,6 +18,7 @@ namespace Laberinto
         public Form1()
         {
            InitializeComponent();
+           pictureTitulo.Image = Laberinto.Properties.Resources.bnf;
            Rellenar();        
         }
 
@@ -48,6 +49,7 @@ namespace Laberinto
 
         void GenerarObstaculos() 
         {
+            
             int ran;
             double[] val;
             string tipo;
@@ -153,8 +155,6 @@ namespace Laberinto
         private void Rellenar()
         {
             GenerarObstaculos();
-           
-      
             numEntrenamiento = 0;
             
             entrenando = false;
@@ -191,9 +191,6 @@ namespace Laberinto
                             break;
 
                     }
-                    
-
-                    //TS[i, j].setImagen(imagen);
 
                     PictureBox P = new PictureBox
                     {
@@ -242,7 +239,7 @@ namespace Laberinto
                                 }
                                 else
                                 {
-                                    P.Image = Image.FromFile("Casa.png");
+                                    P.Image = Laberinto.Properties.Resources.Casa;
                                     textBox2.Text = P.Tag.ToString();
                                     Final.X = coordi;
                                     Final.Y = coordj;
@@ -289,7 +286,30 @@ namespace Laberinto
                 SujetoPrueba = new Agente(m.getOpcion(), entrenamientos); //Reemplazar el 10 con un valor de algun textbox
                 Personaje = m.getOpcion() + ".png";
                 SelPerButton.Enabled = false;
-                picturePersonaje.Image = Image.FromFile(Personaje);
+
+                switch(m.getOpcion())
+                    {
+
+                    case "Sonic":
+                        {
+                            picturePersonaje.Image = Laberinto.Properties.Resources.Sonic2;
+
+                        }
+                        break;
+
+                    case "Link":
+                    {
+                            picturePersonaje.Image = Laberinto.Properties.Resources.Link;
+                    }
+                    break;
+
+                    case "Cyber":
+                        {
+                            picturePersonaje.Image = Laberinto.Properties.Resources.Cyber;
+                        }
+                    break;
+                }
+
             }
             m.Close();
             
@@ -572,7 +592,6 @@ namespace Laberinto
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile("bnf.png");
         }
 
         private void button5_Click(object sender, EventArgs e)

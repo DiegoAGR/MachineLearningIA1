@@ -29,9 +29,9 @@ namespace Laberinto
                 pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
 
 
-                this.pictureBox1.Image = Image.FromFile("Sonic.png");
-                this.pictureBox2.Image = Image.FromFile("Link.png");
-                this.pictureBox3.Image = Image.FromFile("cyber.png");
+                this.pictureBox1.Image = Laberinto.Properties.Resources.Sonic2;
+                this.pictureBox2.Image = Laberinto.Properties.Resources.Link;
+                this.pictureBox3.Image = Laberinto.Properties.Resources.Cyber;
             }
            
 

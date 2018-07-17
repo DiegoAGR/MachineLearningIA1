@@ -103,6 +103,26 @@ namespace Laberinto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cyber {
+            get {
+                object obj = ResourceManager.GetObject("Cyber", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Link {
+            get {
+                object obj = ResourceManager.GetObject("Link", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Montana {
             get {
                 object obj = ResourceManager.GetObject("Montana", resourceCulture);
@@ -126,6 +146,16 @@ namespace Laberinto.Properties {
         internal static System.Drawing.Bitmap Plano {
             get {
                 object obj = ResourceManager.GetObject("Plano", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sonic2 {
+            get {
+                object obj = ResourceManager.GetObject("Sonic2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

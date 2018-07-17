@@ -51,13 +51,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.picturePersonaje = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureTitulo = new System.Windows.Forms.PictureBox();
             this.labelCantEnt = new System.Windows.Forms.Label();
             this.textCantEnt = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePersonaje)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTitulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -263,16 +263,15 @@
             this.picturePersonaje.TabIndex = 34;
             this.picturePersonaje.TabStop = false;
             // 
-            // pictureBox1
+            // pictureTitulo
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::Laberinto.Properties.Resources.bnf;
-            this.pictureBox1.Location = new System.Drawing.Point(688, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(227, 100);
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
+            this.pictureTitulo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureTitulo.Location = new System.Drawing.Point(688, 12);
+            this.pictureTitulo.Name = "pictureTitulo";
+            this.pictureTitulo.Size = new System.Drawing.Size(227, 100);
+            this.pictureTitulo.TabIndex = 30;
+            this.pictureTitulo.TabStop = false;
             // 
             // labelCantEnt
             // 
@@ -305,7 +304,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.trackVel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureTitulo);
             this.Controls.Add(this.textNumEntr);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.botonExplotar);
@@ -327,7 +326,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackVel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePersonaje)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureTitulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -354,7 +353,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.TextBox textNumEntr;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureTitulo;
         private System.Windows.Forms.TrackBar trackVel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;

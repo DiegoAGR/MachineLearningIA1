@@ -46,6 +46,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>maze.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -157,6 +160,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\casa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Cyber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Sonic2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="maze.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
